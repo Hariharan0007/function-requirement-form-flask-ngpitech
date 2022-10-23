@@ -1,0 +1,445 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Functional Requirement Form</title>
+<meta name="function requirement form" content="drngpit">
+<meta name="viewport" content="width=device-width,maximum-scale=1, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" 
+rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" 
+crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" 
+crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+
+<div style="height:200px; width:100%; background: #12539B;">
+<h1 style="text-align: center; color:white"><img src="{{ url_for('static',filename='ngp-itech-logo.png')}}" style="max-height: 80px;max-width: 80px;">Dr. N. G. P. Institute of Technology
+    
+</h1>
+<h2 style="text-align: center; color:white">
+	Functional Requirement Form
+	</h2>
+<p style="text-align: center;color: white;">Designed and Developed by department of CSE</p>
+    
+</div>
+
+<form action="/submit" method="POST">
+    
+    
+<div class="px-5 my-5 " text-white>
+    
+    <div class="card border-dark mb-3">
+        <h5 class="card-header">General details</h5>
+        <div class="card-body">
+            
+
+  <div class="mb-3">
+    <label for="Name" class="form-label">Select your department</label>
+         <select class="form-select" name="department" id="department">
+                <option>-------</option>
+  <option>AI & DS</option>
+    <option>BME</option>
+  <option>CSE</option>
+  <option>CSBS</option>
+                <option>Civil</option>
+  <option>ECE</option>
+                <option>EEE</option>
+                <option>Mechanical</option>
+                <option>IT</option>
+                <option>MBA</option>
+</select>
+    
+  </div>
+    
+    
+  <div class="mb-3">
+    <label for="func_name" class="form-label">Name of the function</label>
+    <input type="text" class="form-control" Name="func_name">
+  </div>
+    
+    
+    <div class="mb-3">
+    <label for="func_date" class="form-label">Date</label>
+    <input type="date" class="form-control" Name="func_date">
+  </div>
+    
+    <div class="mb-3">
+    <label for="func_days" class="form-label">Number of days</label>
+    <input type="number" class="form-control" Name="func_days">
+  </div>
+    
+    <div class="mb-3">
+    <label for="time_duration" class="form-label">Time Duration</label>
+    <input type="time" class="form-control" Name="time_duration">
+  </div>
+    
+    
+    <div class="mb-3">
+    <label for="venue" class="form-label">Select your venue</label>
+    <input type="text" class="form-control" Name="func_venue">
+  </div>
+    
+    
+    <div class="mb-3">
+    <label for="trainging_type" class="form-label">Type of trainging</label>
+    <input type="text" class="form-control" Name="train_type">
+  </div>
+    
+    
+    <div class="mb-3">
+    <label for="func_students" class="form-label">Number of students</label>
+    <input type="number" class="form-control" Name="func_students">
+  </div>
+    
+    
+    <div class="mb-3">
+    <label for="chief_guest_name" class="form-label">Name of the chief guest</label>
+    <input type="text" class="form-control" Name="chief_guest_name">
+  </div>
+    
+    
+    <div class="mb-3">
+    <label for="designation" class="form-label">Designation</label>
+    <input type="text" class="form-control" Name="designation">
+  </div>
+    
+    
+    <div class="mb-3">
+    <label for="field" class="form-label">Select field</label>
+    <input type="text" class="form-control" Name="field_type">
+  </div>
+    
+    
+    <div class="mb-3">
+    <label for="organizer_name" class="form-label">Name of the organizer</label>
+    <input type="text" class="form-control" Name="organizer_name">
+  </div>
+    
+    
+    <div class="mb-3">
+    <label for="organizer_contact" class="form-label">Contact number of the organizer</label>
+    <input type="number" class="form-control" Name="organizer_contact">
+  </div>
+            
+        </div>
+    </div>
+    
+    
+    <div class="card border-dark my-3">
+        <h5 class="card-header">Guest House</h5>
+        <div class="card-body">
+            
+              <h5>Required</h5>
+            
+            <div class="form-check">
+  <input class="form-check-input" type="radio" name="guest_house_yes" id="guest_house_yes" value="yes" checked>
+  <label class="form-check-label" for="guest_house_yes">
+    Yes
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="guest_house_no" id="guest_house_no" value="no">
+  <label class="form-check-label" for="guest_house_no">
+    No
+  </label>
+</div>
+            <div class="mb-3">
+    <label for="guest_house_persons" class="form-label">Number of persons</label>
+    <input type="text" class="form-control" Name="guest_house_persons">
+  </div>
+            <div class="mb-3">
+    <label for="guest_house_days" class="form-label">Number of days</label>
+    <input type="text" class="form-control" Name="guest_house_days">
+  </div>
+            
+  </div>
+</div>
+    
+    
+    <div class="card border-dark my-3">
+        <h5 class="card-header">Refreshment and Lunch</h5>
+        <div class="card-body">
+            <h5>Refreshment for guest</h5>
+            <div class="form-check">
+  <input class="form-check-input" type="radio" name="refreshment_for_guest_yes" id="refreshment_for_guest_yes" value="yes" checked>
+  <label class="form-check-label" for="refreshment_for_guest_yes">
+    Yes
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="refreshment_for_guest_no" id="refreshment_for_guest_no" value="no">
+  <label class="form-check-label" for="refreshment_for_guest_no">
+    No
+  </label>
+</div>
+        <div class="mb-3">
+    <label for="refreshment_guest_number" class="form-label">Number of person</label>
+    <input type="text" class="form-control" Name="refreshment_guest_number">
+  </div>
+      
+            
+          <h5>Refreshment for students</h5>
+            <div class="form-check">
+  <input class="form-check-input" type="radio" name="refreshment_for_students_yes" id="refreshment_for_students_yes" value="yes" checked>
+  <label class="form-check-label" for="refreshment_for_student_yes">
+    Yes
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="refreshment_for_student_no" id="refreshment_for_students_no" value="no">
+  <label class="form-check-label" for="refreshment_for_student_yes">
+    No
+  </label>
+</div>
+    
+            <div class="mb-3">
+    <label for="refreshment_student_number" class="form-label">Number of persons</label>
+    <input type="text" class="form-control" Name="refreshment_student_number">
+  </div>
+            
+            <h5>Payment through</h5>
+            <div class="form-check">
+  <input class="form-check-input" type="radio" name="payment_association_account" id="payment_association_account" value="Association Account" checked>
+  <label class="form-check-label" for="payment_association_account">
+    Association account
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="payment_association_account" id="payment_association_account" value="Institution Account">
+  <label class="form-check-label" for="payment_association_account">
+    Institution account
+  </label>
+</div>
+            
+            <div class="mb-3">
+    <label for="refreshment_student_number" class="form-label">Mention the exact numbers</label>
+    <input type="text" class="form-control" Name="lunch_exact_numbers">
+  </div>
+            
+            <div class="mb-3">
+    <label for="refreshment_student_number" class="form-label">Tiffin</label>
+    <input type="text" class="form-control" Name="tiffin">
+  </div>
+            
+            <div class="mb-3">
+    <label for="refreshment_student_number" class="form-label">Special Lunch(veg)</label>
+    <input type="text" class="form-control" Name="spl_lunch_veg">
+  </div>
+            
+            <div class="mb-3">
+    <label for="refreshment_student_number" class="form-label">Special Lunch(Non-veg)</label>
+    <input type="text" class="form-control" Name="spl_lunch_non_veg">
+  </div>
+            
+            <div class="mb-3">
+    <label for="refreshment_student_number" class="form-label">Required time</label>
+    <input type="time" class="form-control" Name="lunch_required_time">
+  </div>
+            
+            <div class="mb-3">
+    <label for="refreshment_student_number" class="form-label">Water bottle</label>
+    <input type="number" class="form-control" Name="water_bottle">
+  </div>
+            
+  </div>
+</div>
+    
+    
+    <div class="card border-dark my-3">
+        <h5 class="card-header">Transport</h5>
+        <div class="card-body">
+        <div class="mb-3">
+    <label for="transport_req_date" class="form-label">Transport requirement date</label>
+    <input type="date" class="form-control" Name="transport_req_date">
+  </div>
+            <div class="mb-3">
+    <label for="transport_pickup_time" class="form-label">Pick up time at NGPIT</label>
+    <input type="time" class="form-control" Name="transport_pickup_time">
+  </div>
+            <div class="mb-3">
+    <label for="transport_location" class="form-label">Location</label>
+    <input type="text" class="form-control" Name="organizer_name">
+  </div>
+            <div class="mb-3">
+    <label for="transport_drop_time" class="form-label">Drop time</label>
+    <input type="text" class="form-control" Name="transport_drop_time">
+  </div>
+            <div class="mb-3">
+    <label for="transport_pickup_person_name" class="form-label">Name of the pick up person</label>
+    <input type="text" class="form-control" Name="transport_pickup_person_name">
+  </div>
+            <div class="mb-3">
+    <label for="transport_pickup_person_contact" class="form-label">Contact number of the pick up person</label>
+    <input type="number" class="form-control" Name="transport_pickup_person_contact">
+  </div>
+            
+  </div>
+</div>
+    
+    <div class="card border-dark my-3">
+        <h5 class="card-header">Power/System/Camera Requirement</h5>
+        <div class="card-body">
+            
+              <h5>Mic arrangement</h5>
+            
+            <div class="form-check">
+  <input class="form-check-input" type="radio" name="mic_arrangement_yes" id="mic_arrangement_yes" value="yes" checked>
+  <label class="form-check-label" for="mic_arrangement_yes">
+    Yes
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="mic_arrangement_no" id="mic_arrangement_no" value="no">
+  <label class="form-check-label" for="mic_arrangement_no">
+    No
+  </label>
+</div>
+            <div class="mb-3">
+    <label for="type_of_mic" class="form-label">Type of mic</label>
+    <input type="text" class="form-control" Name="type_of_mic">
+  </div>
+            <div class="mb-3">
+    <label for="mic_number" class="form-label">Number of mic</label>
+    <input type="number" class="form-control" Name="mic_number">
+  </div>
+      
+            <h5>A/c arrangment</h5>
+            
+            <div class="form-check">
+  <input class="form-check-input" type="radio" name="ac_arrangement_yes" id="ac_arrangement_yes" value="yes" checked>
+  <label class="form-check-label" for="ac_arrangement_yes">
+    Yes
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="ac_arrangement_no" id="ac_arrangement_no" value="no">
+  <label class="form-check-label" for="ac_arrangement_no">
+    No
+  </label>
+</div>
+            
+            <h5>LCD projector</h5>
+            
+            <div class="form-check">
+  <input class="form-check-input" type="radio" name="lcd_projector_yes" id="lcd_projector_yes" value="yes" checked>
+  <label class="form-check-label" for="lcd_projector_yes">
+    Yes
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="lcd_projector_no" id="lcd_projector_no" value="no">
+  <label class="form-check-label" for="lcd_projector_no">
+    No
+  </label>
+</div>
+            
+            <h5>Laptop</h5>
+            
+            <div class="form-check">
+  <input class="form-check-input" type="radio" name="laptop_yes" id="laptop_yes" value="yes" checked>
+  <label class="form-check-label" for="laptop_yes">
+    Yes
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="laptop_no" id="laptop_no" value="no">
+  <label class="form-check-label" for="laptop_no">
+    No
+  </label>
+</div>
+            
+            <h5>Photography</h5>
+            
+            <div class="form-check">
+  <input class="form-check-input" type="radio" name="photography_yes" id="photography_yes" value="yes" checked>
+  <label class="form-check-label" for="photography_yes">
+    Yes
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="photography_no" id="photography_no" value="no">
+  <label class="form-check-label" for="photography_no">
+    No
+  </label>
+</div>
+        
+  </div>
+</div>
+    
+    
+    <div class="card border-dark my-3">
+        <h5 class="card-header">Memento/Seating/Reception/Item requirement</h5>
+        <div class="card-body">
+            
+              <h5>Memento / Honorarium to chief guest</h5>
+            
+            <div class="form-check">
+  <input class="form-check-input" type="radio" name="memento_yes" id="memento_yes" value="yes" checked>
+  <label class="form-check-label" for="memento_yes">
+    Yes
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="memento_no" id="memento_no" value="no">
+  <label class="form-check-label" for="memento_no">
+    No
+  </label>
+</div>
+            <div class="mb-3">
+    <label for="seating_arrangement_numbers" class="form-label">Number of seating arrangements</label>
+    <input type="number" class="form-control" Name="seating_arrangement_numbers">
+  </div>
+            
+            <div class="mb-3">
+    <label for="dias" class="form-label">Dias</label>
+    <input type="text" class="form-control" Name="dias">
+  </div>
+            
+            <div class="mb-3">
+    <label for="audience" class="form-label">Audience</label>
+    <input type="text" class="form-control" Name="audience">
+  </div>
+        
+            <div class="mb-3">
+    <label for="table_cloth_number" class="form-label">Number of table cloth</label>
+    <input type="text" class="form-control" Name="table_cloth_number">
+  </div>
+            
+            <div class="mb-3">
+    <label for="reception_item_rec" class="form-label">Receptiom item requirements</label>
+    <input type="text" class="form-control" Name="reception_item_rec">
+  </div>
+            
+  </div>
+    </div>
+
+    
+    <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Well done!</h4>
+  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+  <hr>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+</div>
+    
+  <div class="my-5 d-grid gap-2">
+  <button type="submit"  class="btn btn-outline-success btn-lg">Submit</button>
+  </div>
+
+</div>
+
+</form>
+
+
+<script src="" async defer></script>
+</body>
+
+</html>
