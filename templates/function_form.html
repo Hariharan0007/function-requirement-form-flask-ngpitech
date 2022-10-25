@@ -63,71 +63,76 @@ crossorigin="anonymous"></script>
     
   <div class="mb-3">
     <label for="func_name" class="form-label">Name of the function</label>
-    <input type="text" class="form-control" Name="func_name">
+    <input type="text" class="form-control" Name="func_name" required>
   </div>
     
     
     <div class="mb-3">
     <label for="func_date" class="form-label">Date</label>
-    <input type="date" class="form-control" Name="func_date">
+    <input  type="date" class="form-control" Name="func_date" required>
   </div>
     
     <div class="mb-3">
     <label for="func_days" class="form-label">Number of days</label>
-    <input type="number" class="form-control" Name="func_days">
+    <input type="number" class="form-control" Name="func_days" required>
   </div>
     
     <div class="mb-3">
     <label for="time_duration" class="form-label">Time Duration</label>
-    <input type="time" class="form-control" Name="time_duration">
+    <input type="time" class="form-control" Name="time_duration" required>
   </div>
     
     
     <div class="mb-3">
     <label for="venue" class="form-label">Select your venue</label>
-    <input type="text" class="form-control" Name="func_venue">
+    <select class="form-select" name="venue" id="venue">
+      <option>-------</option>
+      {% for v in venue %}
+      <option>{{v}}</option>
+      {% endfor %}
+    </select>
   </div>
     
     
     <div class="mb-3">
     <label for="trainging_type" class="form-label">Type of trainging</label>
-    <input type="text" class="form-control" Name="train_type">
+    <input required type="text" class="form-control" Name="train_type">
   </div>
     
     
     <div class="mb-3">
     <label for="func_students" class="form-label">Number of students</label>
-    <input type="number" class="form-control" Name="func_students">
+    <input required type="number" class="form-control" Name="func_students">
   </div>
     
     
     <div class="mb-3">
     <label for="chief_guest_name" class="form-label">Name of the chief guest</label>
-    <input type="text" class="form-control" Name="chief_guest_name">
+    <input required type="text" class="form-control" Name="chief_guest_name">
   </div>
     
     
     <div class="mb-3">
     <label for="designation" class="form-label">Designation</label>
-    <input type="text" class="form-control" Name="designation">
+    <input required type="text" class="form-control" Name="designation">
   </div>
     
     
     <div class="mb-3">
     <label for="field" class="form-label">Select field</label>
-    <input type="text" class="form-control" Name="field_type">
+    <input required type="text" class="form-control" Name="field_type">
   </div>
     
     
     <div class="mb-3">
     <label for="organizer_name" class="form-label">Name of the organizer</label>
-    <input type="text" class="form-control" Name="organizer_name">
+    <input required type="text" class="form-control" Name="organizer_name">
   </div>
     
     
     <div class="mb-3">
     <label for="organizer_contact" class="form-label">Contact number of the organizer</label>
-    <input type="number" class="form-control" Name="organizer_contact">
+    <input required type="number" class="form-control" Name="organizer_contact">
   </div>
             
         </div>
@@ -141,24 +146,24 @@ crossorigin="anonymous"></script>
               <h5>Required</h5>
             
             <div class="form-check">
-  <input class="form-check-input" type="radio" name="guest_house_yes" id="guest_house_yes" value="yes" checked>
-  <label class="form-check-label" for="guest_house_yes">
+  <input class="form-check-input" type="radio" name="guest_house" id="guest_house" value="yes" checked>
+  <label class="form-check-label" for="guest_house">
     Yes
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="guest_house_no" id="guest_house_no" value="no">
-  <label class="form-check-label" for="guest_house_no">
+  <input class="form-check-input" type="radio" name="guest_house" id="guest_house" value="no">
+  <label class="form-check-label" for="guest_house">
     No
   </label>
 </div>
             <div class="mb-3">
     <label for="guest_house_persons" class="form-label">Number of persons</label>
-    <input type="text" class="form-control" Name="guest_house_persons">
+    <input required type="text" class="form-control" Name="guest_house_persons">
   </div>
             <div class="mb-3">
     <label for="guest_house_days" class="form-label">Number of days</label>
-    <input type="text" class="form-control" Name="guest_house_days">
+    <input required type="text" class="form-control" Name="guest_house_days">
   </div>
             
   </div>
@@ -170,84 +175,84 @@ crossorigin="anonymous"></script>
         <div class="card-body">
             <h5>Refreshment for guest</h5>
             <div class="form-check">
-  <input class="form-check-input" type="radio" name="refreshment_for_guest_yes" id="refreshment_for_guest_yes" value="yes" checked>
-  <label class="form-check-label" for="refreshment_for_guest_yes">
+  <input class="form-check-input" type="radio" name="refreshment_for_guest" id="refreshment_for_guest" value="yes" checked>
+  <label class="form-check-label" for="refreshment_for_guest">
     Yes
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="refreshment_for_guest_no" id="refreshment_for_guest_no" value="no">
-  <label class="form-check-label" for="refreshment_for_guest_no">
+  <input class="form-check-input" type="radio" name="refreshment_for_guest" id="refreshment_for_guest" value="no">
+  <label class="form-check-label" for="refreshment_for_guest">
     No
   </label>
 </div>
         <div class="mb-3">
     <label for="refreshment_guest_number" class="form-label">Number of person</label>
-    <input type="text" class="form-control" Name="refreshment_guest_number">
+    <input required type="text" class="form-control" Name="refreshment_guest_number">
   </div>
       
             
           <h5>Refreshment for students</h5>
             <div class="form-check">
-  <input class="form-check-input" type="radio" name="refreshment_for_students_yes" id="refreshment_for_students_yes" value="yes" checked>
-  <label class="form-check-label" for="refreshment_for_student_yes">
+  <input class="form-check-input" type="radio" name="refreshment_for_students" id="refreshment_for_students" value="yes" checked>
+  <label class="form-check-label" for="refreshment_for_student">
     Yes
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="refreshment_for_student_no" id="refreshment_for_students_no" value="no">
-  <label class="form-check-label" for="refreshment_for_student_yes">
+  <input class="form-check-input" type="radio" name="refreshment_for_student" id="refreshment_for_students" value="no">
+  <label class="form-check-label" for="refreshment_for_student">
     No
   </label>
 </div>
     
             <div class="mb-3">
     <label for="refreshment_student_number" class="form-label">Number of persons</label>
-    <input type="text" class="form-control" Name="refreshment_student_number">
+    <input required type="text" class="form-control" Name="refreshment_student_number">
   </div>
             
             <h5>Payment through</h5>
             <div class="form-check">
-  <input class="form-check-input" type="radio" name="payment_association_account" id="payment_association_account" value="Association Account" checked>
-  <label class="form-check-label" for="payment_association_account">
+  <input class="form-check-input" type="radio" name="payment_through" id="payment_through" value="Association Account" checked>
+  <label class="form-check-label" for="payment_through">
     Association account
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="payment_association_account" id="payment_association_account" value="Institution Account">
-  <label class="form-check-label" for="payment_association_account">
+  <input class="form-check-input" type="radio" name="payment_through" id="payment_through" value="Institution Account">
+  <label class="form-check-label" for="payment_through">
     Institution account
   </label>
 </div>
             
             <div class="mb-3">
-    <label for="refreshment_student_number" class="form-label">Mention the exact numbers</label>
-    <input type="text" class="form-control" Name="lunch_exact_numbers">
+    <label for="lunch_exact_numbers" class="form-label">Mention the exact numbers</label>
+    <input required type="number" class="form-control" Name="lunch_exact_numbers">
   </div>
             
             <div class="mb-3">
-    <label for="refreshment_student_number" class="form-label">Tiffin</label>
-    <input type="text" class="form-control" Name="tiffin">
+    <label for="tiffin" class="form-label">Tiffin</label>
+    <input required type="text" class="form-control" Name="tiffin">
   </div>
             
             <div class="mb-3">
-    <label for="refreshment_student_number" class="form-label">Special Lunch(veg)</label>
-    <input type="text" class="form-control" Name="spl_lunch_veg">
+    <label for="spl_lunch_veg" class="form-label">Special Lunch(veg)</label>
+    <input required type="text" class="form-control" Name="spl_lunch_veg">
   </div>
             
             <div class="mb-3">
-    <label for="refreshment_student_number" class="form-label">Special Lunch(Non-veg)</label>
-    <input type="text" class="form-control" Name="spl_lunch_non_veg">
+    <label for="spl_lunch_non_veg" class="form-label">Special Lunch(Non-veg)</label>
+    <input required type="text" class="form-control" Name="spl_lunch_non_veg">
   </div>
             
             <div class="mb-3">
-    <label for="refreshment_student_number" class="form-label">Required time</label>
-    <input type="time" class="form-control" Name="lunch_required_time">
+    <label for="lunch_required_time" class="form-label">Required time</label>
+    <input required type="time" class="form-control" Name="lunch_required_time">
   </div>
             
             <div class="mb-3">
-    <label for="refreshment_student_number" class="form-label">Water bottle</label>
-    <input type="number" class="form-control" Name="water_bottle">
+    <label for="water_bottle" class="form-label">Water bottle</label>
+    <input required type="number" class="form-control" Name="water_bottle">
   </div>
             
   </div>
@@ -259,27 +264,27 @@ crossorigin="anonymous"></script>
         <div class="card-body">
         <div class="mb-3">
     <label for="transport_req_date" class="form-label">Transport requirement date</label>
-    <input type="date" class="form-control" Name="transport_req_date">
+    <input required type="date" class="form-control" Name="transport_req_date">
   </div>
             <div class="mb-3">
     <label for="transport_pickup_time" class="form-label">Pick up time at NGPIT</label>
-    <input type="time" class="form-control" Name="transport_pickup_time">
+    <input required type="time" class="form-control" Name="transport_pickup_time">
   </div>
             <div class="mb-3">
     <label for="transport_location" class="form-label">Location</label>
-    <input type="text" class="form-control" Name="organizer_name">
+    <input required type="text" class="form-control" Name="transport_location">
   </div>
             <div class="mb-3">
     <label for="transport_drop_time" class="form-label">Drop time</label>
-    <input type="text" class="form-control" Name="transport_drop_time">
+    <input required type="time" class="form-control" Name="transport_drop_time">
   </div>
             <div class="mb-3">
     <label for="transport_pickup_person_name" class="form-label">Name of the pick up person</label>
-    <input type="text" class="form-control" Name="transport_pickup_person_name">
+    <input required type="text" class="form-control" Name="transport_pickup_person_name">
   </div>
             <div class="mb-3">
     <label for="transport_pickup_person_contact" class="form-label">Contact number of the pick up person</label>
-    <input type="number" class="form-control" Name="transport_pickup_person_contact">
+    <input required type="number" class="form-control" Name="transport_pickup_person_contact">
   </div>
             
   </div>
@@ -292,37 +297,37 @@ crossorigin="anonymous"></script>
               <h5>Mic arrangement</h5>
             
             <div class="form-check">
-  <input class="form-check-input" type="radio" name="mic_arrangement_yes" id="mic_arrangement_yes" value="yes" checked>
-  <label class="form-check-label" for="mic_arrangement_yes">
+  <input class="form-check-input" type="radio" name="mic_arrangement" id="mic_arrangement" value="yes" checked>
+  <label class="form-check-label" for="mic_arrangement">
     Yes
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="mic_arrangement_no" id="mic_arrangement_no" value="no">
-  <label class="form-check-label" for="mic_arrangement_no">
+  <input class="form-check-input" type="radio" name="mic_arrangement" id="mic_arrangement" value="no">
+  <label class="form-check-label" for="mic_arrangement">
     No
   </label>
 </div>
             <div class="mb-3">
     <label for="type_of_mic" class="form-label">Type of mic</label>
-    <input type="text" class="form-control" Name="type_of_mic">
+    <input required type="text" class="form-control" Name="type_of_mic">
   </div>
             <div class="mb-3">
     <label for="mic_number" class="form-label">Number of mic</label>
-    <input type="number" class="form-control" Name="mic_number">
+    <input required type="number" class="form-control" Name="mic_number">
   </div>
       
             <h5>A/c arrangment</h5>
             
             <div class="form-check">
-  <input class="form-check-input" type="radio" name="ac_arrangement_yes" id="ac_arrangement_yes" value="yes" checked>
-  <label class="form-check-label" for="ac_arrangement_yes">
+  <input class="form-check-input" type="radio" name="ac_arrangement" id="ac_arrangement" value="yes" checked>
+  <label class="form-check-label" for="ac_arrangement">
     Yes
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="ac_arrangement_no" id="ac_arrangement_no" value="no">
-  <label class="form-check-label" for="ac_arrangement_no">
+  <input class="form-check-input" type="radio" name="ac_arrangement" id="ac_arrangement" value="no">
+  <label class="form-check-label" for="ac_arrangement">
     No
   </label>
 </div>
@@ -330,14 +335,14 @@ crossorigin="anonymous"></script>
             <h5>LCD projector</h5>
             
             <div class="form-check">
-  <input class="form-check-input" type="radio" name="lcd_projector_yes" id="lcd_projector_yes" value="yes" checked>
-  <label class="form-check-label" for="lcd_projector_yes">
+  <input class="form-check-input" type="radio" name="lcd_projector" id="lcd_projector" value="yes" checked>
+  <label class="form-check-label" for="lcd_projector">
     Yes
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="lcd_projector_no" id="lcd_projector_no" value="no">
-  <label class="form-check-label" for="lcd_projector_no">
+  <input class="form-check-input" type="radio" name="lcd_projector" id="lcd_projector" value="no">
+  <label class="form-check-label" for="lcd_projector">
     No
   </label>
 </div>
@@ -345,14 +350,14 @@ crossorigin="anonymous"></script>
             <h5>Laptop</h5>
             
             <div class="form-check">
-  <input class="form-check-input" type="radio" name="laptop_yes" id="laptop_yes" value="yes" checked>
-  <label class="form-check-label" for="laptop_yes">
+  <input class="form-check-input" type="radio" name="laptop" id="laptop" value="yes" checked>
+  <label class="form-check-label" for="laptop">
     Yes
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="laptop_no" id="laptop_no" value="no">
-  <label class="form-check-label" for="laptop_no">
+  <input class="form-check-input" type="radio" name="laptop" id="laptop" value="no">
+  <label class="form-check-label" for="laptop">
     No
   </label>
 </div>
@@ -360,14 +365,14 @@ crossorigin="anonymous"></script>
             <h5>Photography</h5>
             
             <div class="form-check">
-  <input class="form-check-input" type="radio" name="photography_yes" id="photography_yes" value="yes" checked>
-  <label class="form-check-label" for="photography_yes">
+  <input class="form-check-input" type="radio" name="photography" id="photography" value="yes" checked>
+  <label class="form-check-label" for="photography">
     Yes
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="photography_no" id="photography_no" value="no">
-  <label class="form-check-label" for="photography_no">
+  <input class="form-check-input" type="radio" name="photography" id="photography" value="no">
+  <label class="form-check-label" for="photography">
     No
   </label>
 </div>
@@ -383,40 +388,40 @@ crossorigin="anonymous"></script>
               <h5>Memento / Honorarium to chief guest</h5>
             
             <div class="form-check">
-  <input class="form-check-input" type="radio" name="memento_yes" id="memento_yes" value="yes" checked>
-  <label class="form-check-label" for="memento_yes">
+  <input class="form-check-input" type="radio" name="memento" id="memento" value="yes" checked>
+  <label class="form-check-label" for="memento">
     Yes
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="memento_no" id="memento_no" value="no">
-  <label class="form-check-label" for="memento_no">
+  <input class="form-check-input" type="radio" name="memento" id="memento" value="no">
+  <label class="form-check-label" for="memento">
     No
   </label>
 </div>
             <div class="mb-3">
     <label for="seating_arrangement_numbers" class="form-label">Number of seating arrangements</label>
-    <input type="number" class="form-control" Name="seating_arrangement_numbers">
+    <input required type="number" class="form-control" Name="seating_arrangement_numbers">
   </div>
             
             <div class="mb-3">
     <label for="dias" class="form-label">Dias</label>
-    <input type="text" class="form-control" Name="dias">
+    <input required type="text" class="form-control" Name="dias">
   </div>
             
             <div class="mb-3">
     <label for="audience" class="form-label">Audience</label>
-    <input type="text" class="form-control" Name="audience">
+    <input required type="text" class="form-control" Name="audience">
   </div>
         
             <div class="mb-3">
     <label for="table_cloth_number" class="form-label">Number of table cloth</label>
-    <input type="text" class="form-control" Name="table_cloth_number">
+    <input required type="text" class="form-control" Name="table_cloth_number">
   </div>
             
             <div class="mb-3">
     <label for="reception_item_rec" class="form-label">Receptiom item requirements</label>
-    <input type="text" class="form-control" Name="reception_item_rec">
+    <input required type="text" class="form-control" Name="reception_item_rec">
   </div>
             
   </div>
