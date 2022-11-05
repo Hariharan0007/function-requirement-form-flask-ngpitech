@@ -9,43 +9,117 @@
 <meta name="function requirement form" content="drngpit">
 <meta name="viewport" content="width=device-width,maximum-scale=1, initial-scale=1">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" 
-rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" 
-crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
-integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" 
-crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </head>
 
 
-<body>
+<body style="font-family:sans-serif;-webkit-text-size-adjust: 100%;">
 
-<div style="height:200px; width:100%; background: #12539B;">
-<h1 style="text-align: center; color:white"><img src="{{ url_for('static',filename='ngp-itech-logo.png')}}" style="max-height: 80px;max-width: 80px;">Dr. N. G. P. Institute of Technology
+<div style="height:200px; width:100%; background: #12539B; margin:0 auto;font-family:sans-serif;-webkit-text-size-adjust: 100%;">
+<h1 style="text-align: center; color:white"><img src="{{ url_for('static',filename='ngp-itech-logo.png')}}" style="max-height: 80px;max-width: 80px;">Dr. N.G.P. Institute of Technology<br><div><h4>(An Autonomous Institution)</h4></div>
     
 </h1>
+<!--<h3 style="text-align: center; color:white">
+	(An Autonomous Institution)
+</h3>-->
 <h2 style="text-align: center; color:white">
-	Functional Requirement Form
+	Function Requirement Form
 	</h2>
-<p style="text-align: center;color: white;">Designed and Developed by department of CSE</p>
+<p style="text-align: center;color: white;">Designed and Developed by Department of CSE</p>
     
 </div>
+{% if mailid!=none %}
+<p align="right">Logged you in as {{mailid}}</p>
+{% endif %}
 
-<form action="/submit" method="POST">
     
     
-<div class="px-5 my-5 " text-white>
+<div class="px-5 my-5 " text-white style="width:60rem;margin:0 auto;">
     
     <div class="card border-dark mb-3">
         <h5 class="card-header">General details</h5>
         <div class="card-body">
+
+
+          
+          <div class="mb-3">
+            <label for="func_date" class="for">Date</label>
+            <input  type="date" class="form-control mb-3" Name="func_date" value={{date}} disabled>
+          </div>
+          <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#staticBackdrop">
+  Check availability
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Check venue availability</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form" action="\get_venue_details" method="POST">
+        <div class="mb-3">
+          <label for="func_date" class="for">Date</label>
+          <input  type="date" class="form-control mb-3" Name="func_date_check" required>
+        </div>
+        <div class="mb-3">
+          <label for="time_duration" class="form-label">Starting time</label>
+          <input type="time" class="form-control" Name="time_duration_start_check" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="hidden" id="mail_id" name="mail_id" value = {{mailid}}>
+        <button type="submit" class="btn btn-primary">Get venue</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+<form action="/submit" method="POST">
+  
+<div class="mb-3">
+  <label for="venue" class="form-label">Select your venue</label>
+  <select class="form-select" name="venue" id="venue">
+    <option>- - - - - - -</option>
+    {% for v in venue %}
+    <option>{{v}}</option>
+    {% endfor %}
+  </select>
+</div>
+            
+            <div class="mb-3">
+              {% if date!=None %}
+              <input  type="hidden" class="form-control mb-3" id="func_date" Name="func_date" value="{{ date+'' }}">
+              {% endif %}
+            <label for="func_days" class="form-label">Number of days</label>
+            <input type="number" class="form-control" Name="func_days" required>
+          </div>
+            
+            <div class="mb-3">
+            <label for="time_duration" class="form-label">Starting time</label>
+            <input type="time" class="form-control" Name="time_duration_start" required>
+          </div>
+            
+          <div class="mb-3">
+            <label for="time_duration" class="form-label">Ending time</label>
+            <input type="time" class="form-control" Name="time_duration_end" required>
+          </div>
             
 
   <div class="mb-3">
     <label for="Name" class="form-label">Select your department</label>
          <select class="form-select" name="department" id="department">
-                <option>-------</option>
+                <option>- - - - - - -</option>
   <option>AI & DS</option>
     <option>BME</option>
   <option>CSE</option>
@@ -66,36 +140,11 @@ crossorigin="anonymous"></script>
     <input type="text" class="form-control" Name="func_name" required>
   </div>
     
-    
-    <div class="mb-3">
-    <label for="func_date" class="form-label">Date</label>
-    <input  type="date" class="form-control" Name="func_date" required>
-  </div>
-    
-    <div class="mb-3">
-    <label for="func_days" class="form-label">Number of days</label>
-    <input type="number" class="form-control" Name="func_days" required>
-  </div>
-    
-    <div class="mb-3">
-    <label for="time_duration" class="form-label">Time Duration</label>
-    <input type="time" class="form-control" Name="time_duration" required>
-  </div>
+
     
     
     <div class="mb-3">
-    <label for="venue" class="form-label">Select your venue</label>
-    <select class="form-select" name="venue" id="venue">
-      <option>-------</option>
-      {% for v in venue %}
-      <option>{{v}}</option>
-      {% endfor %}
-    </select>
-  </div>
-    
-    
-    <div class="mb-3">
-    <label for="trainging_type" class="form-label">Type of trainging</label>
+    <label for="training_type" class="form-label">Type of training</label>
     <input required type="text" class="form-control" Name="train_type">
   </div>
     
@@ -103,6 +152,43 @@ crossorigin="anonymous"></script>
     <div class="mb-3">
     <label for="func_students" class="form-label">Number of students</label>
     <input required type="number" class="form-control" Name="func_students">
+  </div>
+
+  <div class="mb-3">
+    <label for="func_students_year" class="form-label">Year of Students</label>
+    <select class="form-select" name="func_students_year" id="func_students_year">
+      <option>- - - - - - -</option>
+<option>I</option>
+<option>II</option>
+<option>III</option>
+<option>IV</option>
+</select>
+  </div>
+
+  <div class="mb-3">
+    <label for="func_students_dept" class="form-label">Students department</label>
+    <select class="form-select" name="func_students_dept" id="func_students_dept">
+      <option>- - - - - - -</option>
+      <option>AI & DS</option>
+      <option>BME</option>
+    <option>CSE</option>
+    <option>CSBS</option>
+                  <option>Civil</option>
+    <option>ECE</option>
+                  <option>EEE</option>
+                  <option>Mechanical</option>
+                  <option>IT</option>
+                  <option>MBA</option>
+</select>
+  </div>
+
+  <div class="mb-3">
+    <label for="func_students_year" class="form-label">Students class</label>
+    <select class="form-select" name="func_students_class" id="func_students_class">
+      <option>- - - - - - -</option>
+<option>A</option>
+<option>B</option>
+</select>
   </div>
     
     
@@ -120,7 +206,11 @@ crossorigin="anonymous"></script>
     
     <div class="mb-3">
     <label for="field" class="form-label">Select field</label>
-    <input required type="text" class="form-control" Name="field_type">
+    <select class="form-select" name="field_type" id="field_type">
+      <option>- - - - - - -</option>
+<option>College</option>
+<option>Industry</option>
+</select>
   </div>
     
     
@@ -138,33 +228,32 @@ crossorigin="anonymous"></script>
         </div>
     </div>
     
-    
+  
     <div class="card border-dark my-3">
         <h5 class="card-header">Guest House</h5>
         <div class="card-body">
             
-              <h5>Required</h5>
-            
-            <div class="form-check">
-  <input class="form-check-input" type="radio" name="guest_house" id="guest_house" value="yes" checked>
-  <label class="form-check-label" for="guest_house">
-    Yes
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="guest_house" id="guest_house" value="no">
-  <label class="form-check-label" for="guest_house">
-    No
-  </label>
-</div>
-            <div class="mb-3">
-    <label for="guest_house_persons" class="form-label">Number of persons</label>
-    <input required type="text" class="form-control" Name="guest_house_persons">
+
+<a class="btn btn-primary mb-3" role="button" data-toggle="collapse" href="#guest_house_pd" aria-expanded="false" aria-controls="collapseExample">
+Required
+</a>
+<div class ="collapse mb-3" id="guest_house_pd">
+  <div class="well">
+
+            <div class="mb-3" id="guest_house_p">
+    <label for="guest_house_persons" id="guest_house_persons" class="form-label">Number of persons</label>
+    <input type="text" class="form-control" id="guest_house_persons" name="guest_house_persons">
   </div>
-            <div class="mb-3">
-    <label for="guest_house_days" class="form-label">Number of days</label>
-    <input required type="text" class="form-control" Name="guest_house_days">
+
+  
+            <div class="mb-3" id="guest_house_d">
+    <label for="guest_house_days" id="guest_house_days" class="form-label">Number of days</label>
+    <input type="text" class="form-control" id="guest_house_days" name="guest_house_days">
   </div>
+</div>
+</div>
+
+  
             
   </div>
 </div>
@@ -174,41 +263,31 @@ crossorigin="anonymous"></script>
         <h5 class="card-header">Refreshment and Lunch</h5>
         <div class="card-body">
             <h5>Refreshment for guest</h5>
-            <div class="form-check">
-  <input class="form-check-input" type="radio" name="refreshment_for_guest" id="refreshment_for_guest" value="yes" checked>
-  <label class="form-check-label" for="refreshment_for_guest">
-    Yes
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="refreshment_for_guest" id="refreshment_for_guest" value="no">
-  <label class="form-check-label" for="refreshment_for_guest">
-    No
-  </label>
-</div>
-        <div class="mb-3">
+            <a class="btn btn-primary mb-3" role="button" data-toggle="collapse" href="#refreshment_guest" aria-expanded="false" aria-controls="collapseExample">
+              Required
+              </a>
+
+
+
+        <div class="collapse mb-3" id="refreshment_guest">
+          <div class="well">
     <label for="refreshment_guest_number" class="form-label">Number of person</label>
-    <input required type="text" class="form-control" Name="refreshment_guest_number">
+    <input type="text" class="form-control" Name="refreshment_guest_number">
+  </div>
   </div>
       
             
           <h5>Refreshment for students</h5>
-            <div class="form-check">
-  <input class="form-check-input" type="radio" name="refreshment_for_students" id="refreshment_for_students" value="yes" checked>
-  <label class="form-check-label" for="refreshment_for_student">
-    Yes
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="refreshment_for_student" id="refreshment_for_students" value="no">
-  <label class="form-check-label" for="refreshment_for_student">
-    No
-  </label>
-</div>
+          <a class="btn btn-primary mb-3" role="button" data-toggle="collapse" href="#refreshment_students" aria-expanded="false" aria-controls="collapseExample">
+            Required
+            </a>
+            
     
-            <div class="mb-3">
+            <div class="collapse mb-3" id="refreshment_students">
+              <div class="well">
     <label for="refreshment_student_number" class="form-label">Number of persons</label>
-    <input required type="text" class="form-control" Name="refreshment_student_number">
+    <input type="text" class="form-control" Name="refreshment_student_number">
+    </div>
   </div>
             
             <h5>Payment through</h5>
@@ -262,31 +341,35 @@ crossorigin="anonymous"></script>
     <div class="card border-dark my-3">
         <h5 class="card-header">Transport</h5>
         <div class="card-body">
-        <div class="mb-3">
+          <a class="btn btn-primary mb-3" role="button" data-toggle="collapse" href="#transport" aria-expanded="false" aria-controls="collapseExample">
+            Required
+            </a>
+        <div class="collapse mb-3" id="transport">
+          <div class="well">
     <label for="transport_req_date" class="form-label">Transport requirement date</label>
-    <input required type="date" class="form-control" Name="transport_req_date">
+    <input type="date" class="form-control" Name="transport_req_date">
   </div>
             <div class="mb-3">
     <label for="transport_pickup_time" class="form-label">Pick up time at NGPIT</label>
-    <input required type="time" class="form-control" Name="transport_pickup_time">
+    <input  type="time" class="form-control" Name="transport_pickup_time">
   </div>
             <div class="mb-3">
     <label for="transport_location" class="form-label">Location</label>
-    <input required type="text" class="form-control" Name="transport_location">
+    <input type="text" class="form-control" Name="transport_location">
   </div>
             <div class="mb-3">
     <label for="transport_drop_time" class="form-label">Drop time</label>
-    <input required type="time" class="form-control" Name="transport_drop_time">
+    <input  type="time" class="form-control" Name="transport_drop_time">
   </div>
             <div class="mb-3">
     <label for="transport_pickup_person_name" class="form-label">Name of the pick up person</label>
-    <input required type="text" class="form-control" Name="transport_pickup_person_name">
+    <input  type="text" class="form-control" Name="transport_pickup_person_name">
   </div>
             <div class="mb-3">
     <label for="transport_pickup_person_contact" class="form-label">Contact number of the pick up person</label>
-    <input required type="number" class="form-control" Name="transport_pickup_person_contact">
+    <input  type="number" class="form-control" Name="transport_pickup_person_contact">
   </div>
-            
+       </div>     
   </div>
 </div>
     
@@ -309,8 +392,11 @@ crossorigin="anonymous"></script>
   </label>
 </div>
             <div class="mb-3">
-    <label for="type_of_mic" class="form-label">Type of mic</label>
-    <input required type="text" class="form-control" Name="type_of_mic">
+              <label for="venue" class="form-label">Type of mic</label>
+    <select class="form-select" name="type_of_mic" id="type_of_mic">
+      <option>Wired Mic</option>
+      <option>Wireless Mic</option>
+    </select>
   </div>
             <div class="mb-3">
     <label for="mic_number" class="form-label">Number of mic</label>
@@ -428,21 +514,77 @@ crossorigin="anonymous"></script>
     </div>
 
     
-    <div class="alert alert-success" role="alert">
+   <!-- <div class="alert alert-success" role="alert">
   <h4 class="alert-heading">Well done!</h4>
   <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
   <hr>
   <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
 </div>
-    
-  <div class="my-5 d-grid gap-2">
-  <button type="submit"  class="btn btn-outline-success btn-lg">Submit</button>
+-->
+  <div class="my-5 d-grid gap-2 mr-5" align="center">
+    <input type="hidden" id="mail_id" name="mail_id" value = {{mailid}}>
+  <button type="submit"  class="btn btn-outline-success btn-lg" >Submit</button>
   </div>
 
 </div>
 
+
+
+
 </form>
 
+
+{% for f in function %}
+
+
+<div class="shadow-lg mt-5 card  my-3 rounded border-dark" style="width: 60rem;margin:0 auto;">
+    <div class="shadow card-header rounded">
+    <h3 style="text-align:center; ">{{f.func_name}}</h3>
+    </div>
+  <div class="card-body">
+    <div class=" mt-3">
+		<h5 style="text-align:left;">Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ f.func_date }}</h5>
+		<h5 style="text-align:left;">Starting Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ f.time_duration_start }}</h5>
+    <h5 style="text-align:left;">Ending Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ f.time_duration_end }}</h5>
+		<h5 style="text-align:left;">Chief Guest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ f.chief_guest_name }}</h5>
+		<h5 style="text-align:left;">Organizer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ f.organizer_name }}</h5>
+		<h5 style="text-align:left;">Contact&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ f.organizer_contact }}</h5>
+		<h5 style="text-align:left;">venue&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ f.venue }}</h5>
+    
+  </div>
+    
+      
+      
+      {% if (f.approval!="approved")and(f.approval!="cancelled") %}
+      
+      
+  <div class="my-2 ">
+    <div class="alert alert-warning" role="alert">
+      Waiting for approval !!!
+    </div>
+    <div align="right">
+      <form action="/approve" method="POST">
+        <input type="hidden" id="organizer_mail_id" name="organizer_mail_id" value={{mailid}}>
+        <input type="hidden" id="func_name" name="func_name" value="{{f.func_name+''}}">
+      <button type="submit" class="btn btn-danger" id="delete_func" name="delete_func" value="delete_func">Delete</button>
+    </form>
+    </div>
+
+    </div>
+    {% endif %}
+    {% if f.approval=="approved" %}
+      <div class="alert alert-success" role="alert">
+        Your function request was approved !!!
+      </div>
+    {% endif %}
+    {% if f.approval=="cancelled" %}
+    <div class="alert alert-danger" role="alert">
+      Sorry !!! Your function request was cancelled by the admin .
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}
 
 <script src="" async defer></script>
 </body>
