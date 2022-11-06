@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,4 +99,106 @@ crossorigin="anonymous"></script>
 
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Functional Requirement Form</title>
+<meta name="function requirement form" content="drngpit">
+<meta name="viewport" content="width=device-width,maximum-scale=1, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" 
+rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" 
+crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" 
+crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+
+<div style="height:220px; width:100%; background: #12539B; margin:0 auto;">
+<h1 style="text-align: center; color:white"><img src="{{ url_for('static',filename='ngp-itech-logo.png')}}" style="max-height: 80px;max-width: 80px;">Dr. N.G.P. Institute of Technology<br><div><h4>(An Autonomous Institution)</h4></div>
+    
+</h1>
+<!--<h3 style="text-align: center; color:white">
+	(An Autonomous Institution)
+</h3>-->
+<h2 style="text-align: center; color:white">
+	Function Requirement Form
+	</h2>
+<p style="text-align: center;color: white;">Designed and Developed by Department of CSE</p>
+
+    
+</div>
+
+<div class="container mt-5">
+    <marquee><h5>WELCOME ADMIN !!!!</h5></marquee>
+
+
+</div>
+
+{% for f in function %}
+
+
+<div class="shadow-lg mt-5 card  my-3 rounded border-dark" style="width: 60rem;margin:0 auto;">
+    <div class="shadow card-header rounded">
+    <h3 style="text-align:center; ">{{f.func_name}}</h3>
+    </div>
+  <div class="card-body">
+    <div class=" mt-3">
+		<h5 style="text-align:left;">Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ f.func_date }}</h5>
+		<h5 style="text-align:left;">Starting Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ f.time_duration_start }}</h5>
+    <h5 style="text-align:left;">Ending Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ f.time_duration_end }}</h5>
+		<h5 style="text-align:left;">Chief Guest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ f.chief_guest_name }}</h5>
+		<h5 style="text-align:left;">Organizer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ f.organizer_name }}</h5>
+		<h5 style="text-align:left;">Contact&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ f.organizer_contact }}</h5>
+		<h5 style="text-align:left;">venue&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ f.venue }}</h5>
+    
+  </div>
+    
+      
+      
+      {% if (f.approval!="approved")and(f.approval!="cancelled") %}
+      
+      
+  <div class="my-2 " align="right">
+    <form action="/approve" method="POST">
+      <input type="hidden" id="func_name" name="func_name" value={{f.func_name}}>
+      <!--<input type="hidden" id="func_date" name="func_date" value={{f.func_date}}>
+      <input type="hidden" id="chief_guest_name" name="chief_guest_name" value={{f.chief_guest_name}}>
+      <input type="hidden" id="organizer_name" name="organizer_name" value={{f.organizer_name}}>
+      <input type="hidden" id="venue" name="venue" value={{f.venue}}>
+      <input type="hidden" id="approval_status" name="approve" value="approved">-->
+      
+    <button type="submit"  id="approve" name="approve" value="approve" class="btn btn-outline-success my-2">Approve</button>
+</form>
+    <form action="/approve" method="POST">
+      <input type="hidden" id="func_name" name="func_name" value={{f.func_name}}>
+      <button type="submit"  id="approve" name="approve" value="cancel" class="btn btn-outline-danger my-2">Cancel</button>
+    </form>
+
+    </div>
+    {% endif %}
+    {% if f.approval=="approved" %}
+    <div class="my-2 "  align="right">
+      <button  class="btn btn-success disabled mb-2">Approved</button>
+    </div>
+    {% endif %}
+    {% if f.approval=="cancelled" %}
+    <div class="my-2 " align="right">
+      <button  class="btn btn-danger disabled mb-2">Cancelled</button>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}
+
+</body>
+
+>>>>>>> 41f1943945d8b9f7cba7c1b142a90794112ac8a3
 </html>
